@@ -1,0 +1,14 @@
+services:
+  clickhouse:
+    container_name: clickhouse
+    image: clickhouse/clickhouse-server:24.11
+    volumes:
+      - ../create/:/my-tables/
+      - ../startup-script/:/docker-entrypoint-initdb.d/
+      - 'clickhouse-volume:/var/lib/clickhouse'
+      - 'clickhouse-log-volume:/var/log/clickhouse-server'
+  
+volumes:
+  clickhouse-log-volume:
+  clickhouse-volume:
+
